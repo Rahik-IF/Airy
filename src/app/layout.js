@@ -3,6 +3,7 @@ import "./globals.css";
 import { Inter, Montserrat, Itim } from 'next/font/google'
 import Header from "./components/layout/Header";
 import Footer from "./components/layout/Footer";
+import { Providers } from "@/providers/provider";
 
 
 export const metadata = {
@@ -37,11 +38,11 @@ export default function RootLayout({ children }) {
       <body
         className={`${inter.variable} ${itim.variable} ${montserrat.variable} antialiased`}
       >
-        <div>
+        <Providers>
         <Header />
         {children}
         <Footer />
-        </div>
+        </Providers>
       </body>
     </html>
   );
