@@ -1,0 +1,9 @@
+here need route params category filtering.
+for example,
+ if api route is "api/v1/products/cleanroom" (GET)
+ then the data should be all the products for cleanroom category
+
+same way, 
+ "api/v1/products/hvac" (GET) => products of HVAC category 
+ "api/v1/products/air-filtering" (GET) => products of air-filtering category 
+

@@ -2,7 +2,7 @@
 import Image from 'next/image';
 import { FaArrowRight } from 'react-icons/fa';
 
-const ProductItem = ({ name, category, description, imageUrl }) => {
+const ProductItem = ({ name, description, imageUrl }) => {
   return (
     <div className="bg-white shadow-lg rounded-sm overflow-hidden max-w-xs">
       <div className="relative flex justify-center h-48 w-full">

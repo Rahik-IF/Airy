@@ -13,7 +13,6 @@ const ProductListPage = ({products}) => {
                     <ProductItem
                         key={index}
                         name={product.name}
-                        category={product.category}
                         description={product.description}
                         imageUrl={product.imageUrl}
                     />

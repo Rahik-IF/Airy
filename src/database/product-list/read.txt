@@ -1,0 +1,3 @@
+=> api/v1/products
+need products of all categories, one product per category. 
+So if there is 3 categories(cleanroom, HVAC, air filtering), then total 3 datas would be needed.

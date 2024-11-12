@@ -1,0 +1,3 @@
+=> api/v1/services
+need services of all categories, one service per category. 
+So if there is 2 categories(cleanroom, HVAC), then total 2 datas would be needed.

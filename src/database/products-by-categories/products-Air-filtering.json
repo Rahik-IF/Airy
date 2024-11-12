@@ -1,0 +1,17 @@
+[
+    {
+        "name": "Filtering product 1",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean laoreet vel purus ac imperdiet.",
+        "imageUrl": "https://plus.unsplash.com/premium_photo-1730988915408-209c1ab59554?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw2fHx8ZW58MHx8fHx8"
+    },
+    {
+        "name": "Filtering product 2",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean laoreet vel purus ac imperdiet.",
+        "imageUrl": "https://plus.unsplash.com/premium_photo-1730988915408-209c1ab59554?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw2fHx8ZW58MHx8fHx8"
+    },
+    {
+        "name": "Filtering product 3",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean laoreet vel purus ac imperdiet.",
+        "imageUrl": "https://plus.unsplash.com/premium_photo-1730988915408-209c1ab59554?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw2fHx8ZW58MHx8fHx8"
+    }
+]

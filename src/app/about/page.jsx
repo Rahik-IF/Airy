@@ -2,6 +2,7 @@ import React from 'react'
 import BannerSection from '../components/Banner'
 import Text from './Text'
 import BlogList from '../components/blogs/Blogs'
+import ChooseText from './Choose'
 
 
 function page() {
@@ -24,10 +25,10 @@ function page() {
             text="Lorem ipsum dolor sit amet consectetur. Eu adipiscing vulputate morbi vel vitae faucibus purus felis suspendisse. 
             Pretium lectus ut lectus hendrerit tellus tellus amet. Eleifend mauris tortor pellentesque quisque risus."
          />
+         <ChooseText />
          <BlogList />
         </div>
         <div className='flex w-full justify-center'>
-
         
         </div>
         

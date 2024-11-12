@@ -77,10 +77,10 @@ export default function Menu() {
             {openDropdown === 'services' && (
               <ul className="absolute left-0 mt-6 550:mt-8 1200:mt-10 w-40 bg-white text-black shadow-lg rounded">
                 <li className="px-4 py-2 hover:bg-secondary">
-                  <Link href="/services/consulting">Consulting</Link>
+                  <Link href="/services/cleanroom">Cleanroom</Link>
                 </li>
                 <li className="px-4 py-2 hover:bg-secondary">
-                  <Link href="/services/maintenance">Maintenance</Link>
+                  <Link href="/services/hvac">HVAC</Link>
                 </li>
               </ul>
             )}
