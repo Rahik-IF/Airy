@@ -1,24 +1,7 @@
 // BlogList.js
 import BlogItem from './BlogItem';
+import blogData from "@/database/blogs/blogs.json"
 
-const blogData = [
-    {
-        date: { day: '11', month: 'April', year: '2024' },
-        title: 'New Cleanroom dress are set',
-        description: 'Lorem ipsum dolor sit amet consectetur. Eu adipiscing vulputate morbi vel vitae faucibus purus felis suspendisse. Pretium lectus ut lectus.',
-    },
-    {
-        date: { day: '11', month: 'April', year: '2024' },
-        title: 'New Cleanroom dress are set',
-        description: 'Lorem ipsum dolor sit amet consectetur. Eu adipiscing vulputate morbi vel vitae faucibus purus felis suspendisse. Pretium lectus ut lectus.',
-    },
-    {
-        date: { day: '11', month: 'April', year: '2024' },
-        title: 'New Cleanroom dress are set',
-        description: 'Lorem ipsum dolor sit amet consectetur. Eu adipiscing vulputate morbi vel vitae faucibus purus felis suspendisse. Pretium lectus ut lectus.',
-    },
-    // Add more items as needed
-];
 
 const BlogList = () => {
     return (
