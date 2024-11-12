@@ -23,6 +23,10 @@ export default function Menu() {
     }, 200); // Adjust delay time as needed
   };
 
+  const removeDropDown =()=>{
+    setOpenDropdown(null);
+  }
+
   return (
     <div className="relative">
       {/* Overlay */}
@@ -53,13 +57,13 @@ export default function Menu() {
             </span>
             {openDropdown === 'products' && (
               <ul className="absolute left-0 mt-6 550:mt-8 1200:mt-10 w-40 bg-white text-black shadow-lg rounded">
-                <li className="px-4 py-2 hover:bg-secondary">
+                <li onClick={()=>removeDropDown()} className="px-4 py-2 hover:bg-secondary">
                   <Link href="/products/cleanroom">Cleanroom</Link>
                 </li>
-                <li className="px-4 py-2 hover:bg-secondary">
+                <li onClick={()=>removeDropDown()} className="px-4 py-2 hover:bg-secondary">
                   <Link href="/products/hvac">HVAC</Link>
                 </li>
-                <li className="px-4 py-2 hover:bg-secondary">
+                <li onClick={()=>removeDropDown()} className="px-4 py-2 hover:bg-secondary">
                   <Link href="/products/air-filtering">Air filtering</Link>
                 </li>
               </ul>
@@ -76,10 +80,10 @@ export default function Menu() {
             </span>
             {openDropdown === 'services' && (
               <ul className="absolute left-0 mt-6 550:mt-8 1200:mt-10 w-40 bg-white text-black shadow-lg rounded">
-                <li className="px-4 py-2 hover:bg-secondary">
+                <li onClick={()=>removeDropDown()} className="px-4 py-2 hover:bg-secondary">
                   <Link href="/services/cleanroom">Cleanroom</Link>
                 </li>
-                <li className="px-4 py-2 hover:bg-secondary">
+                <li onClick={()=>removeDropDown()} className="px-4 py-2 hover:bg-secondary">
                   <Link href="/services/hvac">HVAC</Link>
                 </li>
               </ul>

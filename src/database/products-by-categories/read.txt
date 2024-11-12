@@ -1,4 +1,5 @@
 here need route params category filtering.
+=>api/v1/products/{$categoryName}
 for example,
  if api route is "api/v1/products/cleanroom" (GET)
  then the data should be all the products for cleanroom category
