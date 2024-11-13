@@ -11,7 +11,7 @@ const EquipmentList = ({equipments}) => {
         <section className="pt-2 pb-8 ">
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 bg-white p-6 pt-1 rounded-lg shadow-lg">
         {equipments.map((product, index) => (
-          <EquipmentCard key={index} name={product.name} imageUrl={product.imageUrl} />
+          <EquipmentCard key={index} name={product.name} imageUrl={product.photo} />
         ))}
       </div>
     </section>

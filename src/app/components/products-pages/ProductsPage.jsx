@@ -4,7 +4,7 @@ import BlogList from '../blogs/Blogs';
 
 function ProductsPage({name,products}) {
   return (
-    <div className='flex flex-col items-center py-5 px-4'>
+    <div className='flex flex-col container items-center py-5 px-4'>
         <h2 className='px-3 py-1 my-2 660:px-4 880:px-6 660:text-[24px] text-white font-bold bg-secondary'>
             {name}
         </h2>

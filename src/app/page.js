@@ -7,7 +7,7 @@ import ServiceList from "./components/services/Services";
 export default function Home() {
   return (
     <div className="flex flex-col items-center p-0">
-      <main className="flex flex-col items-center 750:items-stretch w-full 750:w-[70%] 950:w-[65%]">
+      <main className="flex flex-col w-full container 450:px-4 750:px-6 1000:px-28">
         <BannerSection />
         <ProductList />
         <ServiceList />

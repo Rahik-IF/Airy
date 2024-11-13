@@ -7,7 +7,7 @@ import ChooseText from './Choose'
 
 function page() {
   return (
-    <div className='flex flex-col items-stretch 450:px-4 750:px-6 1000:px-28'>
+    <div className='flex flex-col w-full container mx-auto 450:px-4 750:px-6 1000:px-28'>
         <BannerSection />
         <div className='p-4 550:p-6 '>      
          <Text 

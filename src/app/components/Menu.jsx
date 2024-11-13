@@ -57,14 +57,14 @@ export default function Menu() {
             </span>
             {openDropdown === 'products' && (
               <ul className="absolute left-0 mt-6 550:mt-8 1200:mt-10 w-40 bg-white text-black shadow-lg rounded">
-                <li onClick={()=>removeDropDown()} className="px-4 py-2 hover:bg-secondary">
-                  <Link href="/products/cleanroom">Cleanroom</Link>
+                <li className="px-4 py-2 hover:bg-secondary">
+                  <Link onClick={()=>removeDropDown()} href="/products/cleanroom">Cleanroom</Link>
                 </li>
-                <li onClick={()=>removeDropDown()} className="px-4 py-2 hover:bg-secondary">
-                  <Link href="/products/hvac">HVAC</Link>
+                <li className="px-4 py-2 hover:bg-secondary">
+                  <Link onClick={()=>removeDropDown()} href="/products/hvac">HVAC</Link>
                 </li>
-                <li onClick={()=>removeDropDown()} className="px-4 py-2 hover:bg-secondary">
-                  <Link href="/products/air-filtering">Air filtering</Link>
+                <li className="px-4 py-2 hover:bg-secondary">
+                  <Link onClick={()=>removeDropDown()} href="/products/air-filtering">Air filtering</Link>
                 </li>
               </ul>
             )}
@@ -80,11 +80,11 @@ export default function Menu() {
             </span>
             {openDropdown === 'services' && (
               <ul className="absolute left-0 mt-6 550:mt-8 1200:mt-10 w-40 bg-white text-black shadow-lg rounded">
-                <li onClick={()=>removeDropDown()} className="px-4 py-2 hover:bg-secondary">
-                  <Link href="/services/cleanroom">Cleanroom</Link>
+                <li className="px-4 py-2 hover:bg-secondary">
+                  <Link onClick={()=>removeDropDown()} href="/services/cleanroom">Cleanroom</Link>
                 </li>
-                <li onClick={()=>removeDropDown()} className="px-4 py-2 hover:bg-secondary">
-                  <Link href="/services/hvac">HVAC</Link>
+                <li className="px-4 py-2 hover:bg-secondary">
+                  <Link onClick={()=>removeDropDown()} href="/services/hvac">HVAC</Link>
                 </li>
               </ul>
             )}

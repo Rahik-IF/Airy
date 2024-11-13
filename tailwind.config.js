@@ -67,6 +67,9 @@ module.exports = {
         '1800': '1800px',
       },
     }, 
+    container: {
+      center: true
+    }
   },
   plugins: [],
 };

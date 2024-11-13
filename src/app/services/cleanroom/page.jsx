@@ -1,3 +1,4 @@
+"use client"
 import Text from '@/app/about/Text';
 import ServiceBannerSection from '@/app/components/ServiceBanner';
 import React from 'react'
@@ -6,15 +7,20 @@ import EquipmentList from '@/app/components/equipments/EquipmentsList';
 import SliderContainer from '@/app/components/slider/Main';
 import BlogList from '@/app/components/blogs/Blogs';
 import cleanRoomEquipments from "@/database/equipments/equipments-cleanroom.json"
+import { useGetEquipmentsByCategoryQuery } from '../../../../redux/features/productsApi';
+import Loading from '@/app/components/Loader';
 function Cleanroom() {
+    const { data: cleanRoomEquipments, error, isLoading } = useGetEquipmentsByCategoryQuery('CLEANROOM');
 
+    if (isLoading) return <Loading />;
+    if (error) return <p>Error loading products</p>;
     const features = [
         {  description: "Lorem ipsum dolor sit amet consectetur. Eu adipiscing" },
         {  description: "Lorem ipsum dolor sit amet consectetur. Eu adipiscing" },
         {  description: "Lorem ipsum dolor sit amet consectetur. Eu adipiscing" },
       ];
     return (
-        <div className='flex flex-col items-center px-[2%] 550:px-[3%] 750:px-[15%] 950:px-[18%]'>
+        <div className='flex flex-col container items-center px-[2%] 550:px-[3%] 750:px-[15%] 950:px-[18%]'>
             <ServiceBannerSection heading="CLEANROOM" />
             <div>
                 <Text

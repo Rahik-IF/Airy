@@ -14,7 +14,7 @@ const ProductListPage = ({products}) => {
                         key={index}
                         name={product.name}
                         description={product.description}
-                        imageUrl={product.imageUrl}
+                        imageUrl={product.photo}
                     />
                 ))}
             </div>
