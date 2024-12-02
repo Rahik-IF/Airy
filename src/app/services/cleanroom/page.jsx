@@ -6,7 +6,6 @@ import ServicesFeatures from '../ServicesFeatures';
 import EquipmentList from '@/app/components/equipments/EquipmentsList';
 import SliderContainer from '@/app/components/slider/Main';
 import BlogList from '@/app/components/blogs/Blogs';
-import cleanRoomEquipments from "@/database/equipments/equipments-cleanroom.json"
 import { useGetEquipmentsByCategoryQuery } from '../../../../redux/features/productsApi';
 import Loading from '@/app/components/Loader';
 function Cleanroom() {
@@ -15,10 +14,10 @@ function Cleanroom() {
     if (isLoading) return <Loading />;
     if (error) return <p>Error loading products</p>;
     const features = [
-        {  description: "Lorem ipsum dolor sit amet consectetur. Eu adipiscing" },
-        {  description: "Lorem ipsum dolor sit amet consectetur. Eu adipiscing" },
-        {  description: "Lorem ipsum dolor sit amet consectetur. Eu adipiscing" },
-      ];
+        { description: "Lorem ipsum dolor sit amet consectetur. Eu adipiscing" },
+        { description: "Lorem ipsum dolor sit amet consectetur. Eu adipiscing" },
+        { description: "Lorem ipsum dolor sit amet consectetur. Eu adipiscing" },
+    ];
     return (
         <div className='flex flex-col container items-center px-[2%] 550:px-[3%] 750:px-[15%] 950:px-[18%]'>
             <ServiceBannerSection heading="CLEANROOM" />
@@ -34,13 +33,15 @@ function Cleanroom() {
                     header="WHAT HAPPENS DURING AN HVAC SERVICE VISIT?"
                     text="HVAC service includes a range of inspections. Your HVAC professional will take time to ensure your whole system works effectively, as one part being broken or worn reduces the entire system's efficiency. Investing in regular HVAC service will help you spot and correct weak points, saving you money in the long term and boosting your HVAC efficiency. An HVAC service will typically involve the technician checking your air conditioner, heating equipment and ductwork."
                 />
-                <ServicesFeatures title="OUR CLEANROOM SERVICES" features={features}/>
-                <EquipmentList equipments={cleanRoomEquipments}/>                      
+                <ServicesFeatures title="OUR CLEANROOM SERVICES" features={features} />
+                <EquipmentList equipments={cleanRoomEquipments} />
             </div>
             <div className='px-8'>
-                  <SliderContainer />
-                </div>
-                <BlogList />
+                <SliderContainer
+                    name="CLEANROOM"
+                />
+            </div>
+            <BlogList />
         </div>
     )
 }

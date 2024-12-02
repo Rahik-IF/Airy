@@ -1,46 +1,23 @@
 // modalSlice.js
 import { createSlice } from '@reduxjs/toolkit';
 
-const initialState = {
-  isSaysoOpen: false,
-  isLockFundOpen: false,
-  isLiveChatOpen: false
-};
-
 const modalSlice = createSlice({
   name: 'modal',
-  initialState,
+  initialState: {
+    isProductOpen: false,
+    product: null,
+  },
   reducers: {
-    //for sayso modal
-    openSaysoModal: (state) => {
-      state.isSaysoOpen = true;
+    openProductModal: (state, action) => {
+      state.isProductOpen = true;
+      state.product = action.payload;
     },
-    closeSaysoModal: (state) => {
-      state.isSaysoOpen = false;
-    },
-    //for lock fund modal
-    openLockFundModal: (state) => {
-      state.isLockFundOpen = true;
-    },
-    closeLockFundModal: (state) => {
-      state.isLockFundOpen = false;
-    },
-    //for live chat modal
-    openLiveChatModal: (state) => {
-      state.isLiveChatOpen = true;
-    },
-    closeLiveChatModal: (state) => {
-      state.isLiveChatOpen = false;
+    closeProductModal: (state) => {
+      state.isProductOpen = false;
+      state.product = null;
     },
   },
 });
 
-export const {
-  openSaysoModal,
-  closeSaysoModal,
-  openLockFundModal,
-  closeLockFundModal,
-  openLiveChatModal,
-  closeLiveChatModal
-} = modalSlice.actions;
+export const { openProductModal, closeProductModal } = modalSlice.actions;
 export default modalSlice.reducer;

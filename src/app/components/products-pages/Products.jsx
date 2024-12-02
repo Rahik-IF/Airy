@@ -1,5 +1,6 @@
 // ProductList.js
 
+import Modal from "../products/Modal";
 import ProductItem from "../products/ProductItem";
 
 
@@ -18,6 +19,7 @@ const ProductListPage = ({products}) => {
                     />
                 ))}
             </div>
+            <Modal />
         </div>
     );
 };

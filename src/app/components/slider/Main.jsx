@@ -1,22 +1,32 @@
-
 "use client"
 import React from 'react';
 import CarouselSlider from './Slider';
+import { useGetProductsByCategoryQuery } from '../../../../redux/features/productsApi';
 
+const SliderContainer = ({ name }) => {
+  const { data: filteringProduct, error, isLoading } = useGetProductsByCategoryQuery({
+    category: `${name}`,
+  });
 
-const SliderContainer = () => {
-  const slides = [
-    { imageUrl: 'https://plus.unsplash.com/premium_photo-1730988915408-209c1ab59554?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw2fHx8ZW58MHx8fHx8', href: '/products/cleanroom', caption: 'CLEANROOM' },
-    { imageUrl: 'https://plus.unsplash.com/premium_photo-1730988915408-209c1ab59554?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw2fHx8ZW58MHx8fHx8', href: '/products/hvac', caption: 'HVAC' },
-    { imageUrl: 'https://plus.unsplash.com/premium_photo-1730988915408-209c1ab59554?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw2fHx8ZW58MHx8fHx8', href: '/products/air-filtering', caption: 'AIR FILTERING' },
-    // Add more slides as needed
-  ];
- 
+  // Map over the first 3 items in filteringProduct to generate slides
+  const slides = filteringProduct
+    ? filteringProduct.slice(0, 3).map((product, index) => ({
+        imageUrl: product.photo,
+        href: `/products/${product.id}`, // Assuming each product has a unique ID
+        caption: `${name} ${index + 1}`,
+      }))
+    : []; // Empty array if no products are available
 
   return (
-    <div className='px-8'>
+    <div className="px-8">
       <h1 className="text-3xl font-bold text-center my-8">Our Products</h1>
-      <CarouselSlider slides={slides} />
+      {isLoading && <p>Loading...</p>}
+      {error && <p>Error loading products.</p>}
+      {filteringProduct && filteringProduct.length > 0 ? (
+        <CarouselSlider slides={slides} />
+      ) : (
+        <p>No products found.</p>
+      )}
     </div>
   );
 };

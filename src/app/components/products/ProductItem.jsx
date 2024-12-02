@@ -1,8 +1,15 @@
-// ProductItem.js
 import Image from 'next/image';
 import { FaArrowRight } from 'react-icons/fa';
+import { useDispatch } from 'react-redux';
+import { openProductModal } from '../../../../redux/features/modals/modalsSlice';
 
 const ProductItem = ({ name, description, imageUrl }) => {
+  const dispatch = useDispatch();
+
+  const handleExploreClick = () => {
+    dispatch(openProductModal({ name, description, imageUrl }));
+  };
+
   return (
     <div className="bg-white shadow-lg rounded-sm overflow-hidden max-w-sm">
       <div className="relative flex justify-center h-48 w-full">
@@ -19,7 +26,10 @@ const ProductItem = ({ name, description, imageUrl }) => {
       </div>
       <div className="p-4">
         <p className="text-gray-600 mb-4 line-clamp-3">{description}</p>
-        <button className="flex w-full items-center justify-center text-white font-semibold hover:underline">
+        <button
+          onClick={handleExploreClick}
+          className="flex w-full items-center justify-center text-white font-semibold"
+        >
           <div className="bg-primary flex items-center p-2 px-5 rounded-full">
             Explore <FaArrowRight className="ml-2" />
           </div>

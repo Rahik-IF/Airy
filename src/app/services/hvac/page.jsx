@@ -40,7 +40,9 @@ function Hvac() {
                 <EquipmentList equipments={HvacEquipments}/>                      
             </div>
             <div className='px-8'>
-                  <SliderContainer />
+                  <SliderContainer 
+                    name="HVAC"
+                  />
                 </div>
                 <BlogList />
         </div>
