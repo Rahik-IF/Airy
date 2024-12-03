@@ -15,7 +15,8 @@ export const productsApi = apiSlice.injectEndpoints({
       query: () => `latest/equipments`,
     }),
     getEquipmentsByCategory: builder.query({
-      query: (category) => `${category}/equipments`,
+      query: ({ category, skip=0, take=10 }) =>
+        `${category}/equipments?skip=${skip}&take=${take}`,
     }),
   }),
   overrideExisting: false,

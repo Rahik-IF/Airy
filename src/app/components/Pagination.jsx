@@ -5,6 +5,7 @@ const Pagination = ({
     totalPages,
     onPageChange,
     resultsPerPage,
+    total,
     onResultsPerPageChange,
 }) => {
     const resultsPerPageOptions = [10, 25, 50, 100];
@@ -24,6 +25,10 @@ const Pagination = ({
 
         return pages;
     };
+    let currentHighestProducts = total;
+    if((currentPage * resultsPerPage) < total){
+        currentHighestProducts=currentPage * resultsPerPage; 
+    }
 
     const pages = getPageRange();
 
@@ -32,8 +37,8 @@ const Pagination = ({
             {/* Pagination Info */}
             <p className="text-sm text-gray-600">
                 Showing {(currentPage - 1) * resultsPerPage + 1} to{" "}
-                {Math.min(currentPage * resultsPerPage, totalPages * resultsPerPage)} of{" "}
-                {totalPages * resultsPerPage}
+                {currentHighestProducts} of{" "}
+                {total}
             </p>
 
             {/* Page Navigation */}

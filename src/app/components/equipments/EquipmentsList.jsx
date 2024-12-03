@@ -1,9 +1,10 @@
 // EquipmentList.jsx
 import React from 'react';
 import EquipmentCard from './Equipment';
+import Pagination from '../Pagination';
 
 
-const EquipmentList = ({equipments}) => {
+const EquipmentList = ({equipments, page, setPage, total, setResultsPerPage, resultsPerPage, totalPages}) => {
 
   return (
     <>
@@ -13,6 +14,18 @@ const EquipmentList = ({equipments}) => {
         {equipments.map((product, index) => (
           <EquipmentCard key={index} name={product.name} imageUrl={product.photo} />
         ))}
+      </div>
+      <div className='pt-2'>
+      <Pagination
+        currentPage={page}
+        totalPages={totalPages}
+        onPageChange={(newPage) => setPage(newPage)}
+        resultsPerPage={resultsPerPage}
+        total={total}
+        onResultsPerPageChange={(newResults) => {
+        setResultsPerPage(newResults);
+        setPage(1); // Reset to first page
+        }} />
       </div>
     </section>
     </>

@@ -10,17 +10,17 @@ function Cleanroom() {
 
   const skip = (page - 1) * resultsPerPage;
 
-  const { data: filteringProduct, error, isLoading } =
+  const { data, error, isLoading } =
     useGetProductsByCategoryQuery({
       category: "CLEANROOM",
       skip,
       take: resultsPerPage,
     });
-
+  
   if (isLoading) return <Loading />;
   if (error) return <p>Error loading products</p>;
-
-  const totalPages = Math.ceil(100 / resultsPerPage); // Adjust based on your total items
+  const {products:filteringProduct, total} = data;
+  const totalPages = Math.ceil(Number(total) / resultsPerPage); 
 
   return (
     <div>
@@ -31,6 +31,7 @@ function Cleanroom() {
         setPage={setPage}
         setResultsPerPage={setResultsPerPage}
         totalPages={totalPages}
+        total={total}
         resultsPerPage={resultsPerPage}
       />
     </div>
