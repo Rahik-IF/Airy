@@ -12,10 +12,9 @@ function page() {
         <div className='p-4 550:p-6 '>      
          <Text 
             header="Our Vision"
-            text="Lorem ipsum dolor sit amet consectetur. Eu adipiscing vulputate morbi vel vitae faucibus purus felis suspendisse. 
-            Pretium lectus ut lectus hendrerit tellus tellus amet. Eleifend mauris tortor pellentesque quisque risus."
+            text="Delivering next-generation HVAC and Cleanroom solutions with precision, sustainability, and reliability, ensuring optimal environments for critical industries"
          />
-         <Text 
+         {/* <Text 
             header="Our Mission"
             text="Lorem ipsum dolor sit amet consectetur. Eu adipiscing vulputate morbi vel vitae faucibus purus felis suspendisse. 
             Pretium lectus ut lectus hendrerit tellus tellus amet. Eleifend mauris tortor pellentesque quisque risus."
@@ -25,7 +24,7 @@ function page() {
             text="Lorem ipsum dolor sit amet consectetur. Eu adipiscing vulputate morbi vel vitae faucibus purus felis suspendisse. 
             Pretium lectus ut lectus hendrerit tellus tellus amet. Eleifend mauris tortor pellentesque quisque risus."
          />
-         <ChooseText />
+         <ChooseText /> */}
          <BlogList />
         </div>
         <div className='flex w-full justify-center'>

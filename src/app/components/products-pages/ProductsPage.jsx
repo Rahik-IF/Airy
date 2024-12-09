@@ -10,7 +10,7 @@ function ProductsPage({ name, products, page, setPage,total, setResultsPerPage, 
         {name}
       </h2>
       <div className="shadow-diligent p-3 bg-white rounded-lg my-4">
-        <ProductListPage products={products} />
+        <ProductListPage products={products} category={name} />
       </div>
       <Pagination
         currentPage={page}

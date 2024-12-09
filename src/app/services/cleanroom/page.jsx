@@ -24,9 +24,13 @@ function Cleanroom() {
     const { equipments: HvacEquipments, total } = data;
     const totalPages = Math.ceil(Number(total) / resultsPerPage);
     const features = [
-        { description: "Lorem ipsum dolor sit amet consectetur. Eu adipiscing" },
-        { description: "Lorem ipsum dolor sit amet consectetur. Eu adipiscing" },
-        { description: "Lorem ipsum dolor sit amet consectetur. Eu adipiscing" },
+        { description: "CLEAN ROOM DESIGN (PHARMACEUTICALS, HOSPITAL, FOOD INDUSTRY, AND SEMI CONDUCOTOR INDUSTRY)" },
+        { description: "CLEANROOM EQUIPMENT SUPPLY AND INSTALLATION" },
+        { description: "CLEANROOM SANDWICH PANEL" },
+        { description: "CLEANROOM DOOR & WINDOW" },
+        { description: "CLEANROOM VALIDATION" },
+        { description: "ALL KINDS OF CLEANROOM EQUIMPENTS" },
+        { description: "VALIDATION OF CLEANROOM SYSTEM" },
     ];
     return (
         <div className='flex flex-col container items-center px-[2%] 550:px-[3%] 750:px-[15%] 950:px-[18%]'>

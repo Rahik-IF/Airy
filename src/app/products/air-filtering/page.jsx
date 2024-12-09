@@ -13,11 +13,11 @@ function AirFiltering() {
 
   const { data, error, isLoading } =
     useGetProductsByCategoryQuery({
-      category: "AIR FILTERING",
+      category: "air-filtering",
       skip,
       take: resultsPerPage,
     });
-
+ 
   if (isLoading) return <Loading />;
   if (error) return <p>Error loading products</p>;
 
@@ -28,7 +28,7 @@ function AirFiltering() {
     <div>
       <ProductsPage
         page={page}
-        name="AIR FILTERING"
+        name="AIR-FILTERING"
         products={filteringProduct}
         setPage={setPage}
         setResultsPerPage={setResultsPerPage}

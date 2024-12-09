@@ -1,9 +1,15 @@
-// ServiceItem.js
 import Image from 'next/image';
-import Link from 'next/link';
 import { FaArrowRight } from 'react-icons/fa';
+import { useDispatch } from 'react-redux';
+import { openProductModal } from '../../../../redux/features/modals/modalsSlice';
 
-const ServiceItem = ({ name, description, imageUrl, category }) => {
+const ProductItem = ({ name, description, imageUrl, body, category, slug }) => {
+  const dispatch = useDispatch();
+
+  const handleExploreClick = () => {
+    dispatch(openProductModal({ name, description, imageUrl, body, category, slug }));
+  };
+
   return (
     <div className="bg-white shadow-lg rounded-sm overflow-hidden max-w-sm">
       <div className="relative flex justify-center h-48 w-full">
@@ -20,14 +26,17 @@ const ServiceItem = ({ name, description, imageUrl, category }) => {
       </div>
       <div className="p-4">
         <p className="text-gray-600 mb-4 line-clamp-3">{description}</p>
-        <Link href={`/services/${category?.slug}`} className="flex w-full items-center justify-center text-white font-semibold hover:underline">
+        <button
+          onClick={handleExploreClick}
+          className="flex w-full items-center justify-center text-white font-semibold"
+        >
           <div className="bg-primary flex items-center p-2 px-5 rounded-full">
             Explore <FaArrowRight className="ml-2" />
           </div>
-        </Link>
+        </button>
       </div>
     </div>
   );
 };
 
-export default ServiceItem;
+export default ProductItem;

@@ -1,6 +1,7 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { closeProductModal } from '../../../../redux/features/modals/modalsSlice';
-import "./Modal.module.css"
+import "../products/Modal.module.css"
+import Link from 'next/link';
 
 const Modal = () => {
   const { isProductOpen, product } = useSelector((state) => state.modal);
@@ -35,14 +36,11 @@ const Modal = () => {
           />
           <h2 className="text-2xl font-bold mt-4">{product.name}</h2>
           <p className="text-gray-600 mt-2 text-justify">{product.description}</p>
-          <h4 className='text-left font-[600] mt-2 text-[18px] 700:text-[20px] 1000:text-[22px]'>Specifications</h4>
-          <div
-            className="text-gray-600 mt-2 text-justify"
-            dangerouslySetInnerHTML={{ __html: product.body }}
-          ></div>
-          {/* <button className="px-2 py-1 bg-primary text-white mt-2 rounded-md">
+          <Link 
+            href={`/products/${product.category.toLowerCase()}/${product.slug}`}
+            className="px-2 py-1 bg-primary text-white mt-2 rounded-md">
             Details
-          </button> */}
+          </Link>
         </div>
       </div>
     </div>

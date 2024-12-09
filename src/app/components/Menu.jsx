@@ -47,9 +47,8 @@ export default function Menu() {
           <li className="relative">
             <Link
               href="/"
-              className={`transition-all duration-300 ease-in-out ${
-                isActive('/') ? 'border-b-2 border-secondary' : 'hover:opacity-80'
-              }`}
+              className={`transition-all duration-300 ease-in-out ${isActive('/') ? 'border-b-2 border-secondary' : 'hover:opacity-80'
+                }`}
             >
               Home
             </Link>
@@ -57,9 +56,8 @@ export default function Menu() {
           <li className="relative">
             <Link
               href="/about"
-              className={`transition-all duration-300 ease-in-out ${
-                isActive('/about') ? 'border-b-2 border-secondary' : 'hover:opacity-80'
-              }`}
+              className={`transition-all duration-300 ease-in-out ${isActive('/about') ? 'border-b-2 border-secondary' : 'hover:opacity-80'
+                }`}
             >
               About Us
             </Link>
@@ -107,41 +105,27 @@ export default function Menu() {
             </span>
             {openDropdown === 'services' && (
               <ul className="absolute left-0 mt-6 550:mt-8 1200:mt-10 w-40 bg-white text-black shadow-lg rounded">
-                <li className="px-4 py-2 hover:bg-secondary">
-                  <Link
-                    onClick={removeDropDown}
-                    href="/services/cleanroom"
-                    className={`transition-all duration-300 ease-in-out ${
-                      isActive('/services/cleanroom')
-                        ? 'border-b-2 border-secondary'
-                        : 'hover:opacity-80'
-                    }`}
-                  >
-                    Cleanroom
-                  </Link>
-                </li>
-                <li className="px-4 py-2 hover:bg-secondary">
-                  <Link
-                    onClick={removeDropDown}
-                    href="/services/hvac"
-                    className={`transition-all duration-300 ease-in-out ${
-                      isActive('/services/hvac')
-                        ? 'border-b-2 border-secondary'
-                        : 'hover:opacity-80'
-                    }`}
-                  >
-                    HVAC
-                  </Link>
-                </li>
+                <LinkComponent
+                  text="Cleanroom"
+                  href="/services/cleanroom"
+                  removeDropDown={removeDropDown}
+                  isActive={isActive}
+                />
+
+                <LinkComponent
+                  text="HVAC"
+                  href="/services/hvac"
+                  removeDropDown={removeDropDown}
+                  isActive={isActive}
+                />
               </ul>
             )}
           </li>
           <li className="relative">
             <Link
               href="/gallery"
-              className={`transition-all duration-300 ease-in-out ${
-                isActive('/gallery') ? 'border-b-2 border-secondary' : 'hover:opacity-80'
-              }`}
+              className={`transition-all duration-300 ease-in-out ${isActive('/gallery') ? 'border-b-2 border-secondary' : 'hover:opacity-80'
+                }`}
             >
               Gallery
             </Link>
@@ -149,9 +133,8 @@ export default function Menu() {
           <li className="relative">
             <Link
               href="/contact"
-              className={`transition-all duration-300 ease-in-out ${
-                isActive('/contact') ? 'border-b-2 border-secondary' : 'hover:opacity-80'
-              }`}
+              className={`transition-all duration-300 ease-in-out ${isActive('/contact') ? 'border-b-2 border-secondary' : 'hover:opacity-80'
+                }`}
             >
               Contact Us
             </Link>

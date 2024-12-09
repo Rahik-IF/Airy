@@ -12,7 +12,7 @@ export default function Footer() {
         <div className="flex-1 text-center md:text-left space-y-4">
           <h2 className="text-2xl font-semibold italic">Airy</h2>
           <p>
-            Sadiq, Alkazem Building (133-251), Plot No: 1536-0<br />
+            211, road-13 (Ranavola Avenue Road), Sector 10, Uttara. Dhaka 1230, Bangladesh<br />
             Hor Al Anz East, Dubai, United Arab Emirates (UAE)
           </p>
           <div className="flex justify-center md:justify-start space-x-4 text-2xl mt-2">

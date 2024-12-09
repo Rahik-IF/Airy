@@ -26,9 +26,15 @@ function Hvac() {
   const { equipments: HvacEquipments, total } = data;
   const totalPages = Math.ceil(Number(total) / resultsPerPage);
   const features = [
-    { description: "Lorem ipsum dolor sit amet consectetur. Eu adipiscing" },
-    { description: "Lorem ipsum dolor sit amet consectetur. Eu adipiscing" },
-    { description: "Lorem ipsum dolor sit amet consectetur. Eu adipiscing" },
+    { description: "HVAC SYSTEM CONSULTATION AND DESIGN( PHARMACEUTICALS, HOSPITAL AND FOOD INDUSTRY)" },
+    { description: "HVAC EQUIPMENT SUPPLY AND INSTALLATION" },
+    { description: "SUPPLY, INSTALLATION OF ALL KINDS OF HVAC EQUIPMENTS" },
+    { description: "CONCEPTUAL LAYOUT DESIGN FOR PHARMACEUTICALS INDUSTRY" },
+    { description: "HUMIDITY CONTROL AND LOW HUMIDITY CONTROL ROOM DESIGN" },
+    { description: "GMP COMPLIANCE CLEAN ROOM & HVAC SYSTEM" },
+    { description: "AIR FILTRATION SYSTEM" },
+    { description: "AIR FILTRATION SYSTEM" },
+    { description: "AIR VENTILATION SYSTEM" },
   ];
   return (
     <div className='flex flex-col container items-center px-[2%] 550:px-[3%] 750:px-[15%] 950:px-[18%]'>

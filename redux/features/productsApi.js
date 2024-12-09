@@ -11,6 +11,10 @@ export const productsApi = apiSlice.injectEndpoints({
       query: ({ category, skip=0, take=10 }) =>
         `${category}/products?skip=${skip}&take=${take}`,
     }),
+    getProductBySlug: builder.query({
+      query: ({ slug }) =>
+        `/products/${slug}`,
+    }),
     getEquipments: builder.query({
       query: () => `latest/equipments`,
     }),
@@ -25,6 +29,7 @@ export const productsApi = apiSlice.injectEndpoints({
 export const {
   useGetProductsQuery,
   useGetProductsByCategoryQuery,
+  useGetProductBySlugQuery,
   useGetEquipmentsQuery,
   useGetEquipmentsByCategoryQuery
 } = productsApi;
