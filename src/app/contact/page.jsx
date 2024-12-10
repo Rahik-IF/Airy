@@ -1,141 +1,74 @@
-'use client'
-import React, { useState } from 'react';
-import { FaFacebook, FaTwitter, FaPhone } from 'react-icons/fa';
-import { useSubmitContactFormMutation } from '../../../redux/features/contactApi';
+"use client";
 
+import { useGetContactsQuery } from "../../../redux/features/contactApi";
+import Loading from "../components/Loader";
 
-const ContactForm = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    phone: '',
-    email: '',
-    message: ''
-  });
+export default function ContactPage() {
+  const { data, isLoading, error } = useGetContactsQuery();
+  if (isLoading) return <Loading />;
+  if (error) return <p className="text-center text-red-600">Error loading contacts.</p>;
 
-  const [responseMessage, setResponseMessage] = useState('');
-  const [submitContactForm, { isLoading, isSuccess, isError, error }] = useSubmitContactFormMutation();
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value
-    });
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setResponseMessage('');
-
-    try {
-      const result = await submitContactForm(formData).unwrap();
-
-      if (isSuccess) {
-        setResponseMessage('Message sent successfully!');
-        setFormData({
-          name: '',
-          phone: '',
-          email: '',
-          message: ''
-        });
-      }
-    } catch {
-      setResponseMessage('Failed to send message. Please try again later.');
-    }
-  };
+  const { phone, email, facebook, address } = data;
+  const mapUrl =
+    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3647.85800128338!2d90.38347647397535!3d23.894653483225664!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c43a7aeae529%3A0xd0856a9d666a2288!2sAiry%20International!5e0!3m2!1sen!2sbd!4v1730995000664!5m2!1sen!2sbd";
 
   return (
-    <div className="container px-4 py-8">
-      <div className="max-w-lg mx-auto bg-white p-6 rounded-lg shadow-md">
-        <h2 className="text-2xl font-semibold text-center mb-6">Contact Us</h2>
+    <div className="flex flex-col w-full container mx-auto px-4 md:px-6 xl:px-20 bg-gray-50">
+      {/* Header */}
+      <header className="bg-gradient-to-r from-primary to-secondary text-white text-center py-10 md:py-16">
+        <h1 className="text-4xl font-extrabold">Get In Touch</h1>
+        <p className="text-lg mt-2 opacity-90">We’re always here to help you.</p>
+      </header>
 
-        {/* Form Section */}
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <div>
-            <label className="block text-gray-700">Name</label>
-            <input
-              type="text"
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-              className="w-full border border-gray-300 rounded-lg p-2 mt-1 focus:outline-none focus:border-orange-500"
-              placeholder="Enter your name"
-              required
-            />
-          </div>
-          <div>
-            <label className="block text-gray-700">Phone</label>
-            <input
-              type="tel"
-              name="phone"
-              value={formData.phone}
-              onChange={handleChange}
-              className="w-full border border-gray-300 rounded-lg p-2 mt-1 focus:outline-none focus:border-orange-500"
-              placeholder="Enter your phone number"
-              required
-            />
-          </div>
-          <div>
-            <label className="block text-gray-700">Email</label>
-            <input
-              type="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              className="w-full border border-gray-300 rounded-lg p-2 mt-1 focus:outline-none focus:border-orange-500"
-              placeholder="Enter your email"
-              required
-            />
-          </div>
-          <div>
-            <label className="block text-gray-700">Message</label>
-            <textarea
-              name="message"
-              value={formData.message}
-              onChange={handleChange}
-              className="w-full border border-gray-300 rounded-lg p-2 mt-1 focus:outline-none focus:border-orange-500"
-              rows="4"
-              placeholder="Enter your message"
-              required
-            ></textarea>
-          </div>
-          <button
-            type="submit"
-            className="w-full bg-orange-600 text-white rounded-full py-2 font-semibold hover:bg-orange-700 transition duration-200"
-            disabled={isLoading}
-          >
-            {isLoading ? 'Sending...' : 'Send'}
-          </button>
-        </form>
-
-        {/* Response Message */}
-        {responseMessage && (
-          <p className={`text-center mt-4 ${isError ? 'text-red-600' : 'text-green-600'}`}>
-            {isError ? error?.data?.message || responseMessage : responseMessage}
-          </p>
-        )}
-
-        {/* Contact Info Section */}
-        <div className="mt-8 text-center">
-          <h3 className="text-xl font-semibold text-gray-800 mb-4">Contact Us</h3>
-          <div className="flex flex-col items-center space-y-2 text-gray-600">
-            <div className="flex items-center space-x-2">
-              <FaFacebook className="text-lg" />
-              <span>www.xxxxxxxxxxxx</span>
-            </div>
-            <div className="flex items-center space-x-2">
-              <FaTwitter className="text-lg" />
-              <span>www.xxxxxxxxxxxx</span>
-            </div>
-            <div className="flex items-center space-x-2">
-              <FaPhone className="text-lg" />
-              <span>+8801XXXXXXXXX</span>
-            </div>
-          </div>
+      {/* Contact Sections */}
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 py-8">
+        {/* Call Section */}
+        <div className="bg-white shadow-lg rounded-lg p-6 text-center border-l-4 border-primary hover:shadow-xl transition-shadow duration-300">
+          <h2 className="text-xl font-bold text-primary">Contact Us</h2>
+          <a href={`tel:${phone}`} className="text-gray-600 mt-4 block">
+            📞 {phone}
+          </a>
+          <a href={`mailto:${email}`} className="text-gray-600 mt-4 block">
+            📩 {email}
+          </a>
         </div>
+
+        {/* WhatsApp/Email Section */}
+        <div className="bg-white shadow-lg rounded-lg p-6 text-center border-l-4 border-primary hover:shadow-xl transition-shadow duration-300">
+          <h2 className="text-xl font-bold text-primary">Follow Us</h2>
+
+          {facebook && (
+            <a
+              href={facebook}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-600 hover:underline mt-2 block"
+            >
+              🌐 Visit our Facebook Page
+            </a>
+          )}
+        </div>
+
+        {/* Address Section */}
+        <div className="bg-white shadow-lg rounded-lg p-6 text-center border-l-4 border-primary hover:shadow-xl transition-shadow duration-300">
+          <h2 className="text-xl font-bold text-primary">Visit Us</h2>
+          <p className="text-gray-600 mt-4">{address}</p>
+
+        </div>
+      </div>
+
+      {/* Map Section */}
+      <div className="mt-8">
+        <iframe
+          src={mapUrl}
+          width="100%"
+          height="450"
+          allowFullScreen=""
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+          className="border rounded-lg shadow-lg"
+        ></iframe>
       </div>
     </div>
   );
-};
-
-export default ContactForm;
+}

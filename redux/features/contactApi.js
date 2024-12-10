@@ -2,15 +2,11 @@ import { apiSlice } from "./api/apiSlice";
 
 export const contactApi = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
-    submitContactForm: builder.mutation({
-      query: (formData) => ({
-        url: '/contact',
-        method: 'POST',
-        body: formData,
-      }),
+      getContacts: builder.query({
+      query: () => `settings`,
     }),
-  }),
+    }),  
 });
 
-export const { useSubmitContactFormMutation } = contactApi;
+export const { useGetContactsQuery } = contactApi;
 
