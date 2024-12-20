@@ -20,7 +20,7 @@ const ProductItem = ({ name, description, imageUrl, body, category, slug }) => {
           objectFit="cover"
           className="rounded-sm"
         />
-        <h3 className="absolute w-[80%] max-h-[3.5rem] text-ellipsis overflow-hidden line-clamp-2 bottom-[-8%] text-lg text-white font-semibold bg-primary px-4 text-center rounded-sm">
+        <h3 className="absolute w-[80%] max-h-[3.5rem] text-ellipsis overflow-hidden line-clamp-2 bottom-[-8%] text-lg text-white font-semibold bg-secondary px-4 text-center rounded-sm">
           {name}
         </h3>
       </div>

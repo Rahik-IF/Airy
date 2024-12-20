@@ -1,5 +1,8 @@
 import BannerSection from "./components/Banner";
 import BlogList from "./components/blogs/Blogs";
+import CategoryCards from "./components/category-card/Cards";
+import Container from "./components/Container";
+import ProductsCarousel from "./components/sliders/pic-slider/Carousel";
 import ProductList from "./components/products/Products";
 import ServiceList from "./components/services/Services";
 
@@ -7,11 +10,13 @@ import ServiceList from "./components/services/Services";
 export default function Home() {
   return (
     <div className="flex flex-col items-center p-0">
-      <main className="flex flex-col w-full container 450:px-4 750:px-6 1000:px-28">
+      <main className="flex flex-col w-full">
         <BannerSection />
-        <ProductList />
-        <ServiceList />
-        <BlogList />
+        <Container><ProductList /></Container>
+        <Container><ServiceList /></Container>
+        <Container><ProductsCarousel /></Container>
+        <Container><BlogList /></Container>
+
         {/* <p className="font-montserrat">This is text 1</p>
         <p className="font-itim">This is text 2</p> */}
       </main>

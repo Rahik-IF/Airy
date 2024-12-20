@@ -12,15 +12,15 @@ module.exports = {
       },
       colors: {
         primary: {
-          DEFAULT: '#1B5D8D', // Your main primary color
-          light: '#487DA3', // Lighter shade for hover effects
-          dark: '#1E40AF', // Darker shade for active states
+          DEFAULT: '#b7601b', // Main primary color
+          light: '#e3751d', // Lighter shade for hover effects
+          dark: '#4c2200', // Darker shade for active states
         },
         secondary: {
-          DEFAULT: '#B7601B', // Main secondary color
-          light: '#FBBF24', // Lighter shade
-          dark: '#B45309', // Darker shade
-        },
+          DEFAULT: '#145858', // Cool and professional blue for contrast
+          light: '#427979',   // Lighter shade for hover effects
+          dark: '#0a2c2c',    // Darker shade for active states
+        },
         background: {
           DEFAULT: '#F9FAFB', // Background color
           dark: '#111827', // Dark background for dark mode
@@ -66,7 +66,7 @@ module.exports = {
         '1480': '1480px',
         '1800': '1800px',
       },
-    }, 
+    },
     container: {
       center: true
     }

@@ -42,12 +42,12 @@ export default function Menu() {
       )}
 
       {/* Navbar */}
-      <nav className="bg-primary text-white text-[12px] 580:text-[14px] 750:text-[16px] 750:font-[600] 1100:text-[18px] py-6 550:py-8 1200:py-10 relative z-20">
+      <nav className="bg-primary-light text-white text-[12px] 580:text-[14px] 750:text-[16px] 750:font-[600] 1100:text-[18px] py-6 550:py-8 1200:py-10 relative z-20">
         <ul className="flex justify-center space-x-3 480:space-x-6 750:space-x-8 1100:space-x-12">
           <li className="relative">
             <Link
               href="/"
-              className={`transition-all duration-300 ease-in-out ${isActive('/') ? 'border-b-2 border-secondary' : 'hover:opacity-80'
+              className={`transition-all duration-300 ease-in-out ${isActive('/') ? 'border-b-2 border-black text-black' : 'hover:opacity-80'
                 }`}
             >
               Home
@@ -56,7 +56,7 @@ export default function Menu() {
           <li className="relative">
             <Link
               href="/about"
-              className={`transition-all duration-300 ease-in-out ${isActive('/about') ? 'border-b-2 border-secondary' : 'hover:opacity-80'
+              className={`transition-all duration-300 ease-in-out ${isActive('/about') ? 'border-b-2 border-black text-black' : 'hover:opacity-80'
                 }`}
             >
               About Us
@@ -86,7 +86,7 @@ export default function Menu() {
                   isActive={isActive}
                 />
                 <LinkComponent
-                  text="Air Filtering"
+                  text="Air Filtration"
                   href="/products/air-filtering"
                   removeDropDown={removeDropDown}
                   isActive={isActive}
@@ -124,7 +124,7 @@ export default function Menu() {
           <li className="relative">
             <Link
               href="/gallery"
-              className={`transition-all duration-300 ease-in-out ${isActive('/gallery') ? 'border-b-2 border-secondary' : 'hover:opacity-80'
+              className={`transition-all duration-300 ease-in-out ${isActive('/gallery') ? 'border-b-2 border-black text-black' : 'hover:opacity-80'
                 }`}
             >
               Gallery
@@ -133,7 +133,7 @@ export default function Menu() {
           <li className="relative">
             <Link
               href="/contact"
-              className={`transition-all duration-300 ease-in-out ${isActive('/contact') ? 'border-b-2 border-secondary' : 'hover:opacity-80'
+              className={`transition-all duration-300 ease-in-out ${isActive('/contact') ? 'border-b-2 border-black text-black' : 'hover:opacity-80'
                 }`}
             >
               Contact Us

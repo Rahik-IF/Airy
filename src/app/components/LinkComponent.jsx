@@ -3,12 +3,12 @@ import Link from 'next/link';
 
 function LinkComponent({ text, removeDropDown, href, isActive }) {
   return (
-    <li className="hover:bg-secondary">
+    <li className="hover:bg-primary">
       <Link
         href={href}
         onClick={removeDropDown}
-        className={`block px-4 py-2 transition-all duration-300 ease-in-out ${
-          isActive(href) ? 'border-b-2 border-secondary' : 'hover:opacity-80'
+        className={`block px-4 py-2 transition-all duration-300 hover:text-white ease-in-out ${
+          isActive(href) ? 'border-b-2 border-primary-dark' : 'hover:opacity-80'
         }`}
       >
         {text}

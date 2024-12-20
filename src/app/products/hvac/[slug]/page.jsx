@@ -2,6 +2,8 @@
 import React from "react";
 import { useGetProductBySlugQuery } from "../../../../../redux/features/productsApi";
 import Loading from "@/app/components/Loader";
+import ProductsSliderContainer from "@/app/components/sliders/products-page-slider/Main";
+import Options from "@/app/components/options/Options";
 
 function ProductBySlug({ params }) {
   const { data: product, error, isLoading } = useGetProductBySlugQuery({
@@ -10,32 +12,54 @@ function ProductBySlug({ params }) {
 
   if (isLoading) return <Loading />;
   if (error) return <>Error in data fetching...</>;
-
+  const options = [
+    {
+      name: "Cleanroom Services",
+      link: "/services/cleanroom"
+    },
+    {
+      name: "HVAC Services",
+      link: "/services/hvac"
+    }
+  ]
   return (
-    <div className="p-6 sm:p-10 max-w-5xl mx-auto">
-      {/* Product Image */}
-      <div className="flex flex-col md:flex-row gap-8">
-        <div className="w-full md:w-1/2">
-          <img
-            src={product.photo}
-            alt={product.name}
-            className="rounded-lg shadow-lg w-full object-cover"
-          />
+    <div className="w-full mx-auto">
+      <div className="w-full">
+        <ProductsSliderContainer />
+      </div>
+
+      <div className="flex flex-col md:flex-row justify-center items-start gap-8 mt-8">
+        {/* First Column with flex-1 */}
+        <div className="flex-1 px-4 md:px-0">
+          <Options options={options} />
         </div>
 
-        {/* Product Details */}
-        <div className="w-full md:w-1/2">
-          <h1 className="text-3xl font-semibold mb-4 text-gray-800">
-            {product.name}
-          </h1>
-          {!product.body && <p
-            className="text-gray-600 text-lg leading-relaxed"           
-          >{product.description}</p>}
-          <p
-            className="text-gray-600 text-lg leading-relaxed"
-            dangerouslySetInnerHTML={{ __html: product.body }}
-          ></p>
-          
+        {/* Second Column with flex-3 */}
+        <div className="flex-grow">
+          <div className="w-full flex flex-col items-center p-6 bg-white shadow-lg rounded-lg">
+            <h1 className="text-xl 950:text-2xl 1150:text-3xl 1450:text-4xl font-semibold text-gray-900 mb-6">{product.name}</h1>
+
+            <div className="w-full max-w-[500px] mb-6">
+              <img
+                src={product.photo}
+                alt={product.name}
+                className="rounded-lg shadow-lg w-full object-cover"
+              />
+            </div>
+
+            <div className="w-full max-w-[700px] text-justify">
+              <p className="text-gray-600 text-lg leading-relaxed mb-6">
+                {!product.body ? product.description : ''}
+              </p>
+
+              {product.body && (
+                <p
+                  className="text-gray-700 text-lg leading-relaxed"
+                  dangerouslySetInnerHTML={{ __html: product.body }}
+                />
+              )}
+            </div>
+          </div>
         </div>
       </div>
     </div>

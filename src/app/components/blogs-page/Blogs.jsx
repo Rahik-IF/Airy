@@ -32,7 +32,7 @@ const BlogListPage = () => {
   return (
     <div className="py-10 bg-gray-50 rounded-lg shadow-md">
       <div className="text-3xl text-gray-800 mb-8 flex justify-between">
-        <h2 className="font-bold">Blogs</h2>
+        <h2 className="font-bold text-primary">Blogs</h2>
       </div>
       {blogs?.map((blog) => (
         <BlogItem

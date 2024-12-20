@@ -21,7 +21,7 @@ const BlogList = () => {
   return (
     <div className="py-10 bg-gray-50 rounded-lg shadow-md">
       <div className="text-3xl text-gray-800 mb-8 flex justify-between">
-        <h2 className="font-bold">Blogs</h2>
+        <h2 className="font-bold text-primary">Blogs</h2>
         <Link href="/blogs" className="px-2 bg-[#C8E0CA] text-black text-[12px] 750:text-[14px]">
           See All
         </Link>
