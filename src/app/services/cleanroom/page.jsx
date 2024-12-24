@@ -1,28 +1,12 @@
-"use client"
 import Text from '@/app/about/Text';
 import ServiceBannerSection from '@/app/components/ServiceBanner';
-import React, { useState } from 'react'
+import React from 'react'
 import ServicesFeatures from '../ServicesFeatures';
-import EquipmentList from '@/app/components/equipments/EquipmentsList';
-import SliderContainer from '@/app/components/sliders/slider/Main';
 import BlogList from '@/app/components/blogs/Blogs';
-import { useGetEquipmentsByCategoryQuery } from '../../../../redux/features/productsApi';
-import Loading from '@/app/components/Loader';
+import ProductsCarouselServicePage from '@/app/components/sliders/service-page-slider/Carousel';
+import Container from '@/app/components/Container';
 function Cleanroom() {
-    const [page, setPage] = useState(1);
-    const [resultsPerPage, setResultsPerPage] = useState(10); // Default results per page
 
-    const skip = (page - 1) * resultsPerPage;
-    const { data, error, isLoading } = useGetEquipmentsByCategoryQuery({
-        category: "CLEANROOM",
-        skip,
-        take: resultsPerPage,
-    });
-
-    if (isLoading) return <Loading />;
-    if (error) return <p>Error loading products</p>;
-    const { equipments: HvacEquipments, total } = data;
-    const totalPages = Math.ceil(Number(total) / resultsPerPage);
     const features = [
         { description: "CLEAN ROOM DESIGN (PHARMACEUTICALS, HOSPITAL, FOOD INDUSTRY, AND SEMI CONDUCOTOR INDUSTRY)" },
         { description: "CLEANROOM EQUIPMENT SUPPLY AND INSTALLATION" },
@@ -33,9 +17,10 @@ function Cleanroom() {
         { description: "VALIDATION OF CLEANROOM SYSTEM" },
     ];
     return (
-        <div className='flex flex-col container items-center px-[2%] 550:px-[3%] 750:px-[15%] 950:px-[18%]'>
-            <ServiceBannerSection heading="CLEANROOM" />
-            <div>
+        <div className='flex flex-col container items-center'>
+            <Container><ServiceBannerSection heading="CLEANROOM" /></Container>
+
+            <Container>
                 <Text
                     text="You count on your HVAC system to always keep your home comfortable, so you want to ensure it continues to work at its best. With heating, ventilation and air conditioning (HVAC) service, you can keep everything running smoothly and efficiently. If you're wondering what HVAC service includes, our guide will help you understand the care your system gets and when you need it."
                 />
@@ -48,22 +33,10 @@ function Cleanroom() {
                     text="HVAC service includes a range of inspections. Your HVAC professional will take time to ensure your whole system works effectively, as one part being broken or worn reduces the entire system's efficiency. Investing in regular HVAC service will help you spot and correct weak points, saving you money in the long term and boosting your HVAC efficiency. An HVAC service will typically involve the technician checking your air conditioner, heating equipment and ductwork."
                 />
                 <ServicesFeatures title="OUR CLEANROOM SERVICES" features={features} />
-                {/* <EquipmentList
-                    setResultsPerPage={setResultsPerPage}
-                    equipments={HvacEquipments}
-                    page={page}
-                    setPage={setPage}
-                    total={total}
-                    resultsPerPage={resultsPerPage}
-                    totalPages={totalPages}
-                /> */}
-            </div>
-            <div className='px-8'>
-                <SliderContainer
-                    name="CLEANROOM"
-                />
-            </div>
-            <BlogList />
+            </Container>
+
+            <Container><ProductsCarouselServicePage name="cleanroom"  /></Container>
+            <Container><BlogList /></Container>
         </div>
     )
 }

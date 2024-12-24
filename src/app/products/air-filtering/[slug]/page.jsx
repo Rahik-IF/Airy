@@ -4,6 +4,8 @@ import { useGetProductBySlugQuery } from "../../../../../redux/features/products
 import Loading from "@/app/components/Loader";
 import ProductsSliderContainer from "@/app/components/sliders/products-page-slider/Main";
 import Options from "@/app/components/options/Options";
+import ProductsHighlightCarousel from "@/app/components/sliders/product-page-highlight-slider/Carousel";
+import Container from "@/app/components/Container";
 
 function ProductBySlug({ params }) {
   const { data: product, error, isLoading } = useGetProductBySlugQuery({
@@ -28,6 +30,7 @@ function ProductBySlug({ params }) {
         <ProductsSliderContainer />
       </div>
 
+      <Container>
       <div className="flex flex-col md:flex-row justify-center items-start gap-8 mt-8">
         {/* First Column with flex-1 */}
         <div className="flex-1 px-4 md:px-0">
@@ -62,6 +65,10 @@ function ProductBySlug({ params }) {
           </div>
         </div>
       </div>
+      </Container>
+      <Container>
+        <ProductsHighlightCarousel />
+      </Container>
     </div>
   );
 }

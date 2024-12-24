@@ -7,8 +7,8 @@ import { Providers } from "@/providers/provider";
 
 
 export const metadata = {
-  title: "Airy International",
-  description: "Airy International website service",
+  title: "CleanroomAC",
+  description: "Cleanroomac website service",
 };
 
 // If loading a variable font, you don't need to specify the font weight

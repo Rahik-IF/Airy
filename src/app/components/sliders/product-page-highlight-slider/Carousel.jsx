@@ -4,41 +4,22 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
+import { useGetFeaturedProductsQuery } from "../../../../../redux/features/productsApi";
+import Loading from "../../Loader";
+import Link from "next/link";
 
 export default function ProductsHighlightCarousel() {
-  const slides = [
-    {
-      name: "HEPA Box",
-      category: "Cleanroom",
-      slug: "desiccant-dehumidifier",
-      shortDescription: "High-performance HEPA filters for cleanrooms.",
-      image: "https://admin.cleanroomac.com/api/v1/products/35/photos/1.jpeg",
-    },
-    {
-      name: "Desiccant Dehumidifier",
-      category: "HVAC",
-      slug: "desiccant-dehumidifier",
-      shortDescription: "Efficient dehumidification for controlled environments.",
-      image: "https://admin.cleanroomac.com/api/v1/products/11/photos/1.jpeg",
-    },
-    {
-      name: "Ulpa & Hepa Filter- Deepplet Type",
-      category: "Air-Filtering",
-      slug: "desiccant-dehumidifier",
-      shortDescription: "Advanced air filtration for industrial needs.",
-      image: "https://admin.cleanroomac.com/api/v1/products/34/photos/1.jpeg",
-    },
-    {
-      name: "Modular Hardwall Clean Room MCR-4HC-B",
-      category: "Cleanroom",
-      slug: "desiccant-dehumidifier",
-      shortDescription: "Modular cleanroom solutions with hardwall construction.",
-      image: "https://admin.cleanroomac.com/api/v1/products/1/photos/1.jpeg",
-    },
-  ];
+  const { data: slides, error, isLoading } =   useGetFeaturedProductsQuery();
+  if (isLoading) {
+    return <Loading />;
+  }
+
+  if (error) {
+    return <div>Error loading products</div>;
+  } 
 
   return (
-    <div className="py-4">
+    <div className="py-8">
       <div className="text-3xl text-gray-800 mb-8 flex justify-between">
         <h2 className="font-bold text-primary">You may also like</h2>
       </div>
@@ -59,10 +40,13 @@ export default function ProductsHighlightCarousel() {
         >
           {slides.map((slide, index) => (
             <SwiperSlide key={index}>
+            <Link
+                href={`/products/${slide?.category?.slug}/${slide?.slug}`}
+              >
               <div
                 className="relative h-full w-full rounded-lg overflow-hidden shadow-lg transform transition-transform hover:scale-105"
                 style={{
-                  backgroundImage: `url(${slide.image})`,
+                  backgroundImage: `url(${slide.photo})`,
                   backgroundSize: "cover",
                   backgroundPosition: "center",
                 }}
@@ -70,10 +54,11 @@ export default function ProductsHighlightCarousel() {
                 <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-black/60"></div>
                 <div className="absolute bottom-4 left-4 text-white z-10">
                   <h2 className="text-xl md:text-2xl font-bold">{slide.name}</h2>
-                  <p className="text-sm opacity-90">{slide.category}</p>
-                  <p className="text-sm opacity-70">{slide.shortDescription}</p>
+                  <p className="text-sm opacity-90">{slide.category?.name}</p>
+                  <p className="text-sm opacity-70 line-clamp-2">{slide.description}</p>
                 </div>
               </div>
+              </Link>
             </SwiperSlide>
           ))}
         </Swiper>

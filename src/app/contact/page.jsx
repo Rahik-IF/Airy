@@ -2,6 +2,7 @@
 
 import { useGetContactsQuery } from "../../../redux/features/contactApi";
 import Loading from "../components/Loader";
+//import banner from "./contact-banner.png"; // Ensure the image path is correct
 
 export default function ContactPage() {
   const { data, isLoading, error } = useGetContactsQuery();
@@ -15,9 +16,19 @@ export default function ContactPage() {
   return (
     <div className="flex flex-col w-full container mx-auto px-4 md:px-6 xl:px-20 bg-gray-50">
       {/* Header */}
-      <header className="bg-gradient-to-r from-primary to-secondary text-white text-center py-10 md:py-16">
-        <h1 className="text-4xl font-extrabold">Get In Touch</h1>
-        <p className="text-lg mt-2 opacity-90">We’re always here to help you.</p>
+      <header
+        className="relative text-white text-center py-10 md:py-16 lg:py-24"
+        style={{
+          backgroundImage: `url(/contact-banner.png)`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
+        <div className="absolute inset-0 bg-black opacity-40"></div>
+        <div className="relative z-10">
+          <h1 className="text-4xl font-extrabold">Get In Touch</h1>
+          <p className="text-lg mt-2 opacity-90">We’re always here to help you.</p>
+        </div>
       </header>
 
       {/* Contact Sections */}
@@ -53,7 +64,6 @@ export default function ContactPage() {
         <div className="bg-white shadow-lg rounded-lg p-6 text-center border-l-4 border-primary hover:shadow-xl transition-shadow duration-300">
           <h2 className="text-xl font-bold text-primary">Visit Us</h2>
           <p className="text-gray-600 mt-4">{address}</p>
-
         </div>
       </div>
 

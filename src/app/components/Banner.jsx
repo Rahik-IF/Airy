@@ -18,7 +18,7 @@ const BannerSection = () => {
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-2xl md:text-3xl font-bold mb-4">ABOUT COMPANY</h2>
             <p className="text-sm 660:text-lg text-justify 1000:text-xl">
-              Founded in 2005, CleanroomAC specializes in pharmaceutical equipment and HVAC systems, leveraging over 25 years of expertise. Renowned for quality and innovation, we serve the pharmaceutical, hospital, and food industries with tailored solutions. Our trusted reputation stems from cutting-edge technology, skilled professionals, and a commitment to exceptional service. CleanroomAC values strong, long-term client relationships, ensuring customized solutions that meet unique needs.
+            Cleanroom Air Condition LLC is a trusted leader in providing turnkey HVAC systems and Cleanroom solutions, offering state-of-the-art products and services tailored to meet the highest industry standards. We specialize in designing and delivering comprehensive environmental solutions for pharmaceuticals, healthcare, and food sectors.
             </p>
           </div>
 

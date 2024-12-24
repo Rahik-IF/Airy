@@ -15,12 +15,8 @@ export const productsApi = apiSlice.injectEndpoints({
       query: ({ slug }) =>
         `/products/${slug}`,
     }),
-    getEquipments: builder.query({
-      query: () => `latest/equipments`,
-    }),
-    getEquipmentsByCategory: builder.query({
-      query: ({ category, skip=0, take=10 }) =>
-        `${category}/equipments?skip=${skip}&take=${take}`,
+    getFeaturedProducts: builder.query({
+      query: () => `random/products`,
     }),
   }),
   overrideExisting: false,
@@ -31,5 +27,6 @@ export const {
   useGetProductsByCategoryQuery,
   useGetProductBySlugQuery,
   useGetEquipmentsQuery,
-  useGetEquipmentsByCategoryQuery
+  useGetEquipmentsByCategoryQuery,
+  useGetFeaturedProductsQuery
 } = productsApi;

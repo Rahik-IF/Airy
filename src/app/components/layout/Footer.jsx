@@ -1,25 +1,31 @@
+"use client"
 import Link from 'next/link';
-import { FaFacebook, FaTwitter, FaYoutube, FaInstagram } from 'react-icons/fa';
+import { FaFacebook, FaTwitter, FaYoutube, FaInstagram, FaEnvelope } from 'react-icons/fa';
 import MapEmbed from '../Map';
+import { useGetContactsQuery } from '../../../../redux/features/contactApi';
+import Loading from '../Loader';
 
 
 export default function Footer() {
+  const { data, isLoading, error } = useGetContactsQuery();
+  if (isLoading) return <Loading />;
+  if (error) return <p className="text-center text-red-600">Error loading contacts.</p>;
+
+  const { phone, email, facebook, address } = data;
   return (
     <footer className="bg-[#a45728] text-white text-[12px] 480:text-[14px] 700:text-[16px] md:text-[10px] 850:text-[12px] 1000:text-[14px] 1150:text-[16px] py-8 px-4 1200:px-12">
       <div className="container mx-auto flex flex-col md:flex-row justify-between space-y-8 md:space-y-0 md:space-x-8">
-        
+
         {/* Company Info */}
         <div className="flex-1 text-center md:text-left space-y-4">
-          <h2 className="text-2xl font-semibold italic">Airy</h2>
           <p>
-            211, road-13 (Ranavola Avenue Road), Sector 10, Uttara. Dhaka 1230, Bangladesh<br />
-            Hor Al Anz East, Dubai, United Arab Emirates (UAE)
+            {address}
           </p>
           <div className="flex justify-center md:justify-start space-x-4 text-2xl mt-2">
-            <Link href='https://www.facebook.com' ><FaFacebook/></Link>
+            {/* <Link href={facebook} ><FaFacebook /></Link>
+            <Link href={`mailto:${email}`} ><FaEnvelope /></Link>
             <Link href='https://www.x.com' ><FaTwitter /></Link>
-            <Link href='https://www.youtube.com' ><FaYoutube /></Link>
-            <Link href='https://www.instagram.com' ><FaInstagram /></Link>
+            <Link href='https://www.youtube.com' ><FaYoutube /></Link> */}
           </div>
         </div>
 
@@ -27,11 +33,9 @@ export default function Footer() {
         <div className="flex-1 text-center md:text-left">
           <h3 className="font-bold mb-2">About Us</h3>
           <ul className="space-y-1">
-            <li>About Airy</li>
-            <li>Products</li>
-            <li>Services</li>
-            <li>Terms & Conditions</li>
-            <li>Privacy Policy</li>
+            <li><Link href="/products/cleanroom">About Cleanroomac</Link></li>
+            <li><Link href="/about">Products</Link></li>
+            <li><Link href="/services/cleanroom">Services</Link></li>
           </ul>
         </div>
 
@@ -39,9 +43,8 @@ export default function Footer() {
         <div className="flex-1 text-center md:text-left">
           <h3 className="font-bold mb-2">Contact Us</h3>
           <ul className="space-y-1">
-            <li><FaFacebook className="inline mr-2" /> www.xxxxxxxxxxxx</li>
-            <li><FaTwitter className="inline mr-2" /> www.xxxxxxxxxxxx</li>
-            <li><FaInstagram className="inline mr-2" /> +8801XXXXXXXXX</li>
+            <li><Link href={facebook}><FaFacebook className="inline mr-2" />facebook</Link></li>
+            <li><Link href={`mailto:${email}`}><FaEnvelope className="inline mr-2" />{email}</Link></li>
           </ul>
         </div>
 
@@ -50,8 +53,7 @@ export default function Footer() {
           <h3 className="font-bold mb-2">Help</h3>
           <ul className="space-y-1">
             <li>FAQs</li>
-            <li>Ask Question</li>
-            <li>Contact Us</li>
+            <li><Link href="/services/contact">Contact Us</Link></li>
           </ul>
         </div>
 
@@ -62,7 +64,7 @@ export default function Footer() {
           <div className="w-full h-40 bg-gray-300 mt-2">
             {/* You can replace this div with an <iframe> or image for an actual map */}
 
-                <MapEmbed />
+            <MapEmbed />
           </div>
         </div>
       </div>
