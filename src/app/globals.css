@@ -16,6 +16,13 @@
 .font-itim {
   font-family: var(--font-itim);
 }
+.font-rubik {
+  font-family: var(--font-rubik-vinyl), sans-serif;
+}
+
+.font-bungee {
+  font-family: var(--font-bungee-spice), sans-serif;
+}
 
 /* Default body font */
 body {

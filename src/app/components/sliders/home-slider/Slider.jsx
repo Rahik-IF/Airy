@@ -8,6 +8,7 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 
 import { Pagination, Navigation, Autoplay } from 'swiper/modules';
+import Image from 'next/image';
 
 const CarouselSlider = ({ slides }) => {
   return (
@@ -29,13 +30,17 @@ const CarouselSlider = ({ slides }) => {
         className="overflow-hidden mb-2"
       >
         {slides.map((slide, index) => (
-          <SwiperSlide key={index} className="relative group">
+          <SwiperSlide key={index} className="relative group w-full">
             <a href={slide.href} target="_blank" rel="noopener noreferrer">
-              <img
+              <div className='relative w-full h-64 600:h-72 770:h-80 1150:h-96 1300:h-[520px] object-cover transition-transform duration-300 transform group-hover:scale-105'>
+              <Image
                 src={slide.imageUrl}
                 alt={slide.caption}
-                className="w-full h-60 600:h-64 770:h-72 1150:h-80 1300:h-96 object-cover transition-transform duration-300 transform group-hover:scale-105"
+                fill="true"
+                objectFit='cover'
+                className="w-full h-64 600:h-72 770:h-80 1150:h-96 1300:h-[520px] object-cover transition-transform duration-300 transform group-hover:scale-105"
               />
+              </div>
               <div className="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <p className="text-white text-lg font-semibold">{slide.caption}</p>
               </div>

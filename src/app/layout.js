@@ -31,12 +31,44 @@ const itim = Itim({
   display: 'swap',
 })
 
+// Rubik Vinyl (Local Font)
+const rubikVinyl = localFont({
+  src: [
+    {
+      path: './fonts/RubikVinyl-Regular.ttf',
+      weight: '400',
+      style: 'normal',
+    },
+  ],
+  variable: '--font-rubik-vinyl',
+  display: 'swap',
+});
+
+const bungeeSpice = localFont({
+  src: [
+    {
+      path: "/fonts/BungeeSpice-Regular.ttf",
+      weight: "400",
+      style: "normal",
+    },
+  ],
+  variable: "--font-bungee-spice",
+  display: "swap",
+});
+
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${inter.variable} ${itim.variable} ${montserrat.variable} antialiased`}
+        className={
+          `${inter.variable} 
+          ${itim.variable} 
+          ${montserrat.variable} 
+          ${rubikVinyl.variable} 
+          ${bungeeSpice.variable}
+          antialiased`
+          }
       >
         <Providers>
         <Header />

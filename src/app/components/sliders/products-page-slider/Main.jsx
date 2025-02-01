@@ -3,8 +3,58 @@ import React from 'react';
 import CarouselSlider from './Slider';
 import Loading from '../../Loader';
 import { useGetProductsByCategoryQuery } from '../../../../../redux/features/productsApi';
-
-const ProductsSliderContainer = ({ name = "cleanroom" }) => {
+const slides1 = [
+  {
+    imageUrl: "/cleanroom-sl-1.svg",
+    href: `/products/cleanroom`,
+    caption: ``,
+  },
+  {
+    imageUrl: "/cleanroom-sl-2.svg",
+    href: `/products/cleanroom`,
+    caption: ``,
+  },
+  {
+    imageUrl: "/cleanroom-sl-3.svg",
+    href: `/products/cleanroom`,
+    caption: ``,
+  }
+]
+const slides2 = [
+  {
+    imageUrl: "/hvac-sl-1.svg",
+    href: `/products/hvac`,
+    caption: ``,
+  },
+  {
+    imageUrl: "/hvac-sl-2.svg",
+    href: `/products/hvac`,
+    caption: ``,
+  },
+  {
+    imageUrl: "/hvac-sl-3.svg",
+    href: `/products/hvac`,
+    caption: ``,
+  }
+]
+const slides3 = [
+  {
+    imageUrl: "/air-sl-1.svg",
+    href: `/products/hvac`,
+    caption: ``,
+  },
+  {
+    imageUrl: "/air-sl-2.svg",
+    href: `/products/hvac`,
+    caption: ``,
+  },
+  {
+    imageUrl: "/air-sl-3.svg",
+    href: `/products/hvac`,
+    caption: ``,
+  }
+]
+const ProductsSliderContainer = ({ name }) => {
   const { data, error, isLoading } = useGetProductsByCategoryQuery({
     category: `cleanroom`,
   });
@@ -13,42 +63,22 @@ const ProductsSliderContainer = ({ name = "cleanroom" }) => {
   console.log(data);
   const { products: filteringProduct, total } = data;
   // Map over the first 3 items in filteringProduct to generate slides
-  const slides = filteringProduct
-    ? filteringProduct.slice(0, 3).map((product, index) => ({
-      imageUrl: product.photo,
-      href: `/products/${name.toLowerCase()}`, // Assuming each product has a unique ID
-      caption: `${name} ${index + 1}`,
-    }))
-    : []; // Empty array if no products are available
-  const slides2 = [
-    {
-      imageUrl: "/product-slide-1.png",
-      href: `/products/cleanroom`,
-      caption: ``,
-    },
-    {
-      imageUrl: "/product-slide-2.jpg",
-      href: `/products/cleanroom`,
-      caption: ``,
-    },
-    {
-      imageUrl: "/product-slide-3.png",
-      href: `/products/cleanroom`,
-      caption: ``,
-    },
-    {
-      imageUrl: "/product-slide-4.jpg",
-      href: `/products/cleanroom`,
-      caption: ``,
-    }
-  ]
+  let slides =[];
+  if(name === "CLEANROOM"){
+   slides = slides1;
+  }else if (name === "AIR-FILTERING"){
+   slides = slides3
+  }else{
+   slides = slides2
+  }
+
 
   return (
     <div className="w-screen mx-auto">
       {isLoading && <p>Loading...</p>}
       {error && <p>Error loading products.</p>}
       {filteringProduct && filteringProduct.length > 0 ? (
-        <CarouselSlider slides={slides2} />
+        <CarouselSlider slides={slides} />
       ) : (
         <p>No products found.</p>
       )}

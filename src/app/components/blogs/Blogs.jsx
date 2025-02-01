@@ -26,6 +26,7 @@ const BlogList = () => {
           See All
         </Link>
       </div>
+      <Link href="/blogs">
       {blogs?.blogs?.map((blog) => (
         <BlogItem
           key={blog.slug}
@@ -34,6 +35,7 @@ const BlogList = () => {
           description={blog.description}
         />
       ))}
+      </Link>
       
     </div> 
   );

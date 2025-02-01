@@ -6,7 +6,7 @@ function CategoryCards() {
     {
       name: "Cleanroom",
       link: "/products/cleanroom",
-      image: "/cleanroom.png", // Path relative to the public folder
+      image: "/cleanroom-card.jpg", // Path relative to the public folder
       features: [
         "High-quality materials",
         "Easy installation",
@@ -17,7 +17,7 @@ function CategoryCards() {
     {
       name: "HVAC",
       link: "/products/hvac",
-      image: "/hvac.jpeg", // Path relative to the public folder
+      image: "/hvac-card.jpg", // Path relative to the public folder
       features: [
         "Energy efficient",
         "Advanced temperature control",
@@ -28,7 +28,7 @@ function CategoryCards() {
     {
       name: "Air-Filtration",
       link: "/products/air-filtering",
-      image: "/air-filter.jpg", // Path relative to the public folder
+      image: "/air-card.jpg", // Path relative to the public folder
       features: [
         "Effective pollutant removal",
         "Compact and durable",
@@ -39,7 +39,7 @@ function CategoryCards() {
   ];
 
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div className="container flex justify-center mx-auto px-4 py-8">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 max-w-screen-lg mx-auto">
         {cardData.map((item, index) => (
           <CategoryCard

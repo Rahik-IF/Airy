@@ -13,11 +13,14 @@ function HeaderTop() {
           objectFit='contain'
           src={airy} />
       </div>
+      <div className="hidden text-primary font-bold 550:block font-bungee text-[12px] sm:text-[15px] md:text-[18px] lg:text-[22px]">
+       Cleanroom AC LLC
+      </div>
       <div className='pt-2'>
       <SearchBar />
       </div>
     </div>
-  )
+  ) 
 }
 
 export default HeaderTop

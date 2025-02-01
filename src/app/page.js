@@ -17,10 +17,8 @@ export default function Home() {
         <Container><ProductsCarousel /></Container>
         <Container><BlogList /></Container>
 
-        {/* <p className="font-montserrat">This is text 1</p>
-        <p className="font-itim">This is text 2</p> */}
       </main>
-    </div>
+    </div> 
   );
 }
 

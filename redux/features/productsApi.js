@@ -11,6 +11,10 @@ export const productsApi = apiSlice.injectEndpoints({
       query: ({ category, skip=0, take=10 }) =>
         `${category}/products?skip=${skip}&take=${take}`,
     }),
+    getProductBySearch: builder.query({
+      query: ({ search,skip=0, take=10 }) =>
+        `/search/${search}?skip=${skip}&take=${take}`,
+    }),
     getProductBySlug: builder.query({
       query: ({ slug }) =>
         `/products/${slug}`,
@@ -28,5 +32,6 @@ export const {
   useGetProductBySlugQuery,
   useGetEquipmentsQuery,
   useGetEquipmentsByCategoryQuery,
-  useGetFeaturedProductsQuery
+  useGetFeaturedProductsQuery,
+  useGetProductBySearchQuery
 } = productsApi;

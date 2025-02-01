@@ -7,6 +7,7 @@ import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import { useGetFeaturedProductsQuery } from "../../../../../redux/features/productsApi";
 import Loading from "../../Loader";
 import Link from "next/link";
+import Heading from "../../Heading";
 
 export default function ProductsCarousel() {
   const { data: slides, error, isLoading } = useGetFeaturedProductsQuery();
@@ -21,7 +22,7 @@ export default function ProductsCarousel() {
   return (
     <div>
       <div className="text-3xl  text-gray-800 mb-8 flex justify-between">
-        <h2 className='font-bold text-primary'>Products Highlights</h2>
+        <Heading>Products Highlights</Heading>
       </div>
 
       <div className="w-full max-w-5xl mx-auto py-8">

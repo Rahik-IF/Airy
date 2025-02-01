@@ -36,7 +36,8 @@ const Modal = () => {
           />
           <h2 className="text-2xl font-bold mt-4">{product.name}</h2>
           <p className="text-gray-600 mt-2 text-justify">{product.description}</p>
-          <Link 
+          <Link
+            onClick={handleClose} 
             href={`/products/${product.category.toLowerCase()}/${product.slug}`}
             className="px-2 py-1 bg-primary text-white mt-2 rounded-md">
             Details

@@ -20,10 +20,10 @@ function ProductsPage({ name, products, page, setPage, total, setResultsPerPage,
     <div className="flex flex-col container items-center py-5 px-4">
 
       <h2 className="px-3 py-1 my-2 660:px-4 880:px-6 660:text-[24px] text-white font-bold bg-primary">
-        {name}
+        {name === "AIR-FILTERING" ? "AIR-FILTRATION" : name}
       </h2>
       <div>
-        <ProductsSliderContainer />
+        <ProductsSliderContainer name={name}/>
       </div>
       <div className="p-3 my-4 flex-col md:flex-row flex">
         <div className="flex-1">

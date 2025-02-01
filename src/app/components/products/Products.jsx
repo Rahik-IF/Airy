@@ -6,24 +6,15 @@ import Modal from './Modal';
 import Link from 'next/link';
 
 import CategoryCards from '../category-card/Cards';
+import Heading from '../Heading';
 
 const ProductList = () => {
-  const { data: products, error, isLoading } = useGetProductsQuery();
-
-  if (isLoading) {
-    return <Loading />;
-  }
-
-  if (error) {
-    return <div>Error loading products</div>;
-  } 
-
   return (
     <div className="py-10">
       <div className="text-3xl text-gray-800 mb-8 flex justify-between">
-        <h2 className="font-bold text-primary">Products</h2>
+        <Heading>Products</Heading>
       </div>
-      <div >
+      <div className='w-full flex justify-center'>
          <CategoryCards />
       </div>
       <Modal />
