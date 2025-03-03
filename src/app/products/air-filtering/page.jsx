@@ -29,7 +29,7 @@ function AirFiltering() {
     <div>
       <ProductsPage
         page={page}
-        name="AIR-FILTERING"
+        name="AIR-FILTRATION"
         products={filteringProduct}
         setPage={setPage}
         setResultsPerPage={setResultsPerPage}

@@ -22,6 +22,9 @@ export const productsApi = apiSlice.injectEndpoints({
     getFeaturedProducts: builder.query({
       query: () => `random/products`,
     }),
+    getBanners: builder.query({
+      query: ({page}) => `pages/${page}/banners`,
+    }),
   }),
   overrideExisting: false,
 });
@@ -33,5 +36,6 @@ export const {
   useGetEquipmentsQuery,
   useGetEquipmentsByCategoryQuery,
   useGetFeaturedProductsQuery,
-  useGetProductBySearchQuery
+  useGetProductBySearchQuery,
+  useGetBannersQuery,
 } = productsApi;
