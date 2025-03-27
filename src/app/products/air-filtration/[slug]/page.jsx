@@ -27,7 +27,9 @@ function ProductBySlug({ params }) {
   return (
     <div className="w-full mx-auto">
       <div className="w-full">
-        <ProductsSliderContainer />
+        <ProductsSliderContainer 
+          name="AIR-FILTRATION"
+        />
       </div>
 
       <Container>

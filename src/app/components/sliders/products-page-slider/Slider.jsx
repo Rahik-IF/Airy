@@ -11,7 +11,6 @@ import { Pagination, Navigation, Autoplay } from 'swiper/modules';
 import Image from 'next/image';
 
 const CarouselSlider = ({ slides }) => {
-  alert(slides[0].imageUrl);
   return (
     <section className="mx-auto">
       <Swiper

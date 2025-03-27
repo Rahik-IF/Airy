@@ -87,7 +87,7 @@ export default function Menu() {
                 />
                 <LinkComponent
                   text="Air Filtration"
-                  href="/products/air-filtering"
+                  href="/products/air-filtration"
                   removeDropDown={removeDropDown}
                   isActive={isActive}
                 />

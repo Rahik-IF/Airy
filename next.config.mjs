@@ -17,6 +17,10 @@ const nextConfig = {
         port: '',
         pathname: '**',
       },
+      {
+        protocol: 'https',
+        hostname: '**', // Allow all external URLs
+      },
     ],
   },
 };

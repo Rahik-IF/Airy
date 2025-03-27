@@ -17,12 +17,12 @@ function ProductsPage({ name, products, page, setPage, total, setResultsPerPage,
     }
   ]
   return (
-    <div className="flex flex-col container items-center py-5 px-4">
+    <div className="flex flex-col items-center py-5">
 
-      <h2 className="px-3 py-1 my-2 660:px-4 880:px-6 660:text-[24px] text-white font-bold bg-primary">
+      <h2 className="px-3 py-1 6 my-2 660:px-4 880:px-6 660:text-[24px] text-white font-bold bg-primary">
         {name === "AIR-FILTERING" ? "AIR-FILTRATION" : name}
       </h2>
-      <div>
+      <div className='h-full w-full'>
         <ProductsSliderContainer name={name}/>
       </div>
       <div className="p-3 my-4 flex-col md:flex-row flex">
@@ -44,7 +44,7 @@ function ProductsPage({ name, products, page, setPage, total, setResultsPerPage,
           setResultsPerPage(newResults);
           setPage(1);
         }} />
-      <div className=''>
+      <div className='container'>
         <BlogList />
       </div>
     </div>
